@@ -10,4 +10,6 @@ std::cin >> a;
 std::cout << "Type the first number" << std::endl;
 std::cin >> b;
 std::cout << "The multiplication of a x b = " << a*b << std::endl;
+
+return 0; 
 }
