@@ -4,6 +4,32 @@
 
 using namespace std;
 
+//----------------------------------------------------------------------
+// Functions
+//
+double add(double a, double b)
+{
+return a + b;
+}
+double subtract(double a, double b)
+{
+return a - b;
+}
+double multiply(double a, double b)
+{
+return a * b;
+}
+double divide(double a, double b)
+{
+return a / b;
+}	
+
+//----------------------------------------------------------------------
+
+//----------------------------------------------------------------------
+// Main Function Run by the program
+//
+
 int main() {
 	//This program takes in a number and an operation and gives a result.
 	double a(0.0);
@@ -48,17 +74,17 @@ int main() {
 			
 		//Perform the operation	
 		if (c == '*') {
-			d = a * b;
+			d = multiply(a,b);
 		} else if ( c == '/') {
 			if ( b == 0) {
 				std::cerr << "Error! The second number that you passed in in zero. Try a non-zero number" << std::endl;
 			} else {
-				d = a / b;
+				d = divide(a,b);
 			}
 		} else if ( c == '-') {
-			d = a - b;
+			d = subtract(a,b);
 		} else {
-			d = a + b;
+			d = add(a,b);
 		}
 	
 	std::cout << "The result is " << d << std::endl;
