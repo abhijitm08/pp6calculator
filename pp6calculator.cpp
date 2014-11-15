@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 //pp6calculator library
-#include "day.hpp"
+#include "Day.hpp"
 
 //----------------------------------------------------------------------
 // Main Function Run by the program
