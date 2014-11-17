@@ -104,16 +104,16 @@ double length4vector(double E, double px, double py, double pz)
 	if(E2 > p2)
 	{
 		l4 = sqrt(E2-p2);
-		//std::cout << "It is a space-like interval and the length of 4 vector or Invariant mass of particle is " << l4 << " relavant units" << std::endl;  
+		std::cout << "It is a space-like interval and the length of 4 vector or Invariant mass of particle is " << l4 << " relavant units" << std::endl;  
 	}
 	else if (E2 == p2)
 	{
-		//std::cout << "It is a light-like interval and the length of 4 vector or Invariant mass of particle is zero.\n";  
+		std::cout << "It is a light-like interval and the length of 4 vector or Invariant mass of particle is zero.\n";  
 	}
 	else
 	{
 		l4 = sqrt(abs(E2-p2));
-		//std::cout << "It is a time-like interval and the length of 4 vector or Invariant mass of particle is imaginary ie. " << l4 << "*i relavant units" << std::endl;
+		std::cout << "It is a time-like interval and the length of 4 vector or Invariant mass of particle is imaginary ie. " << l4 << "*i relavant units" << std::endl;
 	}
 
 	return l4;

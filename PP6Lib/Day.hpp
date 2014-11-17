@@ -11,4 +11,5 @@
 //Day 1: Basic Functions
 void day1(); 
 void day2();
+void day3();
 #endif // PP6CALCULATOR_DAY_HH

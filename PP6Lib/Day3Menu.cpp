@@ -5,13 +5,15 @@
 #include <stdlib.h>
 
 #include "PP6MathDay1.hpp"
-#include "PP6MathDay2.hpp"
+#include "PP6Day2meanE.hpp"
+#include "PP6Day2muon.hpp"
+#include "PP6Day3boost.hpp"
 
 //----------------------------------------------------------------------
 // day2 Function Run by the program
 //---------------------------------------------------------------------
 
-void day2() 
+void day3() 
 {
 	//Declare the variables that will be used globally here
 	char m('0');	
@@ -23,20 +25,24 @@ void day2()
 		//what the user wants to do	
 		std::cout << std::endl;
 		std::cout << "Specify what you want to do by typing the number or character:" << std::endl;
-		std::cout << "	   If you want to find the intercept of two lines type 1 \n";
-		std::cout << "	   If you want to find the solutions to a quadratic equation type 2 \n";
-		std::cout << "	   If you want to find the length of a 3 vector type 3 \n";
-		std::cout << "	   If you want to find the length of a 4 vector or Invariant mass of a particle type 4 \n";
-		std::cout << "	   If you want to find the invariant mass of 2 particles type 5 \n";
-		std::cout << "	   If you want to perform normal operations such as subtract, add, multiply, divide type 6" << std::endl;
+		std::cout << "		If you want to find the intercept of two lines type 1 \n";
+		std::cout << "	  	If you want to find the solutions to a quadratic equation type 2 \n";
+		std::cout << "	        If you want to find the length of a 3 vector type 3 \n";
+		std::cout << "	   	If you want to find the length of a 4 vector or Invariant mass of a particle type 4 \n";
+		std::cout << "	   	If you want to find the invariant mass of 2 particles type 5 \n";
+		std::cout << "	   	If you want to perform normal operations such as subtract, add, multiply, divide type 6" << std::endl;
 		std::cout << "------------------" << std::endl;
-		
 		//day2------------------------------------------------
-		std::cout << "	   If you want to swap two numbers, type 'a'" << std::endl;
-		std::cout << "	   If you want to use Bubble sort to sort your array of number, type 'b'" << std::endl;
-		std::cout << "     If you want to generate n particles and calculate their mean Energy and its standard deviation, type 'c'" << std::endl;
+		std::cout << "		If you want to swap two numbers, type 'a'" << std::endl;
+		std::cout << "	   	If you want to use Bubble sort to sort your array of number, type 'b'" << std::endl;
+		std::cout << "     	If you want to generate n particles and calculate their mean Energy and its standard deviation, type 'c'" << std::endl;
+		std::cout << "     	If you want to pick out mu+/mu- particles from run4.dat and calculate their 10 largest combined invariant mass, type 'd'" << std::endl;
 		std::cout << "------------------" << std::endl;
-		std::cout << "	   If you want to quit type q" << std::endl;
+		//day3------------------------------------------------
+		std::cout << "	   	If you want to use boost a 4-vector along z-axis, type 'e'" << std::endl;
+		std::cout << "	   	If you want to find the length of a 4 vector or Invariant mass of a particle, type 'f' \n";
+		std::cout << "------------------" << std::endl;
+		std::cout << "	   	If you want to quit, type 'q'" << std::endl;
 		std::cout << std::endl;
 
 		//------------------------------------------------------------------	
@@ -87,7 +93,7 @@ void day2()
 			z = get_double_number();
 			length3vector(x,y,z);
 		}
-		else if(m == '4')
+		else if(m == '4' || m == 'f')
 		{
 			double E(0.0), px(0.0), py(0.0), pz(0.0); //for length or inv mass of four vector
 			std::cout <<"Type the four components either t,x,y,z or E,px,py,pz in that order with space b/w them for a 4 vector" << std::endl;
@@ -151,13 +157,21 @@ void day2()
 		else if (m == 'a')
 		{
 			double a(0.0),b(0.0);
+			bool swap_performed;
 			std::cout << "Type the two numbers to be swaped, with space in b/w" << std::endl;
 			//std::cin >> a >> b;
 			a = get_double_number();
 			b = get_double_number();
-			std::cout << "The 1st number is " << a << ". The 2nd number is" << b << std::endl;
-			swap_double(a,b);
-			std::cout << "The 1st swaped number is " << a << ". The 2nd swaped number is " << b << std::endl;
+			std::cout << "The 1st number you typed is " << a << ". The 2nd number is" << b << std::endl;
+			swap_double(a,b,swap_performed);
+			if(swap_performed)
+			{
+				std::cout << "The 1st swaped number is " << a << ". The 2nd swaped number is " << b << std::endl;
+			}
+			else
+			{
+				std::cerr << " There was an error when swapping the numbers " << std::endl;
+			}
 		}		
 		else if (m == 'b')
 		{
@@ -166,24 +180,28 @@ void day2()
 			n = get_int_number();	
 			
 			double a[n];
-			//int index[n];
 
 			for (int i = 0; i < n; i++)
 			{	
 				double b(0.0);	
 				std::cout << "Type your " << (i+1) << " number" << std::endl;
-				//std::cin >> b;
 				b = get_double_number();
 				a[i] = b;
-				//index[i] = i;
 			}
+			bool sort;
+			bubble_sort_1(a, n, sort);
 			
-			bubble_sort_1(a, n);
-			
-			std::cout << "The output of the numbers in the descending order is " << std::endl;
-			for (int i = 0; i < n; i++)
-			{	
-				std::cout << a[i] << std::endl;
+			if(sort)
+			{
+				std::cout << "The output of the numbers in the descending order is " << std::endl;
+				for (int i = 0; i < n; i++)
+				{	
+					std::cout << a[i] << std::endl;
+				}
+			}
+			else
+			{
+				std::cerr << "There was some error in performing swap" << std::endl;
 			}
 		}
 		else if(m == 'c')
@@ -196,6 +214,31 @@ void day2()
 			
 			std::cout << "The mean energy of all the particles generated is " << arr[0] << " relavant units" << std::endl;
 			std::cout << "The standard deviation on the mean energy generated for all the particles is " << arr[1] << " relavant units" <<std::endl;
+		}
+		else if (m == 'd')
+		{
+			if(!pp6day2muon())
+			{
+				std::cerr << "Failed to run this operation" << std::endl;
+			}
+		}
+		else if (m == 'e')
+		{
+			double fourvector[4];
+			double v(0.), t(0.);
+			const double c(3e8);
+			std::cout <<"Type the four components t,x,y,z in that order with space b/w them for a 4 vector" << std::endl;
+			t = get_double_number();
+			fourvector[0] = multiply(c,t);
+			fourvector[1]= get_double_number();
+			fourvector[2]= get_double_number();
+			fourvector[3]= get_double_number();
+			std::cout <<"Specify the boost velocity"<< std::endl;
+			v = get_double_number();
+			std::cout << " The intial vector is (" << fourvector[0] << " , " << fourvector[1] << " , " << fourvector[2] << " , " << fourvector[3] << " ) " << std::endl;
+			boost_z(fourvector,v,c);
+			std::cout << " The boosted vector is (" << fourvector[0] << " , " << fourvector[1] << " , " << fourvector[2] << " , " << fourvector[3] << " ) " << std::endl;
+			length4vector(divide(fourvector[0],c),fourvector[1],fourvector[2],fourvector[3]);
 		}
 		else if (m == 'q')
 		{
