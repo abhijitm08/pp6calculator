@@ -27,7 +27,8 @@ double divide(double a, double b)
 	double c(0.);
 	if ( b == 0) 
 	{
-		std::cerr << "Error! The second number that you passed in in zero. Try a non-zero number" << std::endl;
+		std::cerr << "Error! The denominator is passed in as zero." << std::endl;
+		return 0.0;
 	} 
 	else
 	{

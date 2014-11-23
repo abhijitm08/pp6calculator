@@ -3,7 +3,7 @@
 #include <cmath>//to use math functionss
 #include <limits>//to use the error in cin functions
 #include <cstdlib>//to use random generator
-#include <stdlib.h>
+#include <stdlib.h>//for abs to work?
 
 
 #include "PP6MathDay1.hpp"

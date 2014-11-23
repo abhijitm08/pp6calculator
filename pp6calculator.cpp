@@ -18,7 +18,7 @@ int main()
 		char n('0');
 		std::cout << std::endl;
 		std::cout << "============================================================================================" << std::endl;
-		std::cout << "If you would like to access day 1 exercise type '1' or for day 2 type '2' or to quit type 'q'" << std::endl;
+		std::cout << "If you would like to access day 1: type '1' or for day 2 type '2' or for day 3 type '3' to quit type 'q'" << std::endl;
 		std::cout << "============================================================================================" << std::endl;
 		std::cin >> n;
 		
