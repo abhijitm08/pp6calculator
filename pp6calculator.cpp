@@ -18,7 +18,7 @@ int main()
 		char n('0');
 		std::cout << std::endl;
 		std::cout << "============================================================================================" << std::endl;
-		std::cout << "If you would like to access day 1: type '1' or for day 2 type '2' or for day 3 type '3' to quit type 'q'" << std::endl;
+		std::cout << "If you would like to access \n Day 1: type '1' or \n Day 2 type '2' or \n Day 3 type '3' or \n Day 4 type '4' or \n To quit type 'q'" << std::endl;
 		std::cout << "============================================================================================" << std::endl;
 		std::cin >> n;
 		
@@ -55,7 +55,13 @@ int main()
 			std::cout << "============================================================================================" << std::endl;
 			day3();
 		} 
-	
+		else if(n == '4')
+		{
+			std::cout << "============================================================================================" << std::endl;
+			std::cout << "				---------- DAY 4 -----------" << std::endl;
+			std::cout << "============================================================================================" << std::endl;
+			day4();
+		} 
 		else if(n == 'q')
 		{
 			std::cout << std::endl;

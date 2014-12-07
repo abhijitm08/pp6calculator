@@ -4,7 +4,7 @@
 #include <limits>
 #include <stdlib.h>
 
-#include "PP6MathDay1.hpp"
+#include "PP6Day1Math.hpp"
 
 //----------------------------------------------------------------------
 // day1 Function Run by the program

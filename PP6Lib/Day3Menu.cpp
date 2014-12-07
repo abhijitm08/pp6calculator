@@ -4,7 +4,7 @@
 #include <limits>
 #include <stdlib.h>
 
-#include "PP6MathDay1.hpp"
+#include "PP6Day1Math.hpp"
 #include "PP6FourVector.hpp"
 #include "PP6Particle.hpp"
 #include "PP6Day2meanE.hpp"

@@ -3,7 +3,7 @@
 #include <cmath>//to use math functionss
 
 #include "PP6ThreeVector.hpp"
-#include "PP6MathDay1.hpp"
+#include "PP6Day1Math.hpp"
 
 //pass in arguments which are then set to member variables.
 ThreeVector::ThreeVector(const double x, const double y, const double z)

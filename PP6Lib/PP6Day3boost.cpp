@@ -3,7 +3,7 @@
 #include <cmath>//to use math functionss
 #include <stdlib.h>
 
-#include "PP6MathDay1.hpp"
+#include "PP6Day1Math.hpp"
 #include "PP6Day3boost.hpp"
 #include "PP6Day2meanE.hpp"
 //----------------------------------------------------------------------

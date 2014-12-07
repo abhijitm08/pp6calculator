@@ -5,7 +5,7 @@
 #include "PP6Particle.hpp"
 #include "PP6FourVector.hpp"
 #include "PP6ThreeVector.hpp"
-#include "PP6MathDay1.hpp"
+#include "PP6Day1Math.hpp"
 
 Particle::Particle(int pdg_code,int charge, const std::string& name, const double mass, FourVector& mom)
        :pdg_code_(pdg_code), charge_(charge),name_(name),mass_(mass),mom_(mom)

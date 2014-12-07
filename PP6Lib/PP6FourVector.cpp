@@ -4,7 +4,7 @@
 
 #include "PP6FourVector.hpp"
 #include "PP6ThreeVector.hpp"
-#include "PP6MathDay1.hpp"
+#include "PP6Day1Math.hpp"
 
 const double FourVector::c_(3e8);//for boosting along z axis
 const double FourVector::c2_(1);//natural
@@ -147,7 +147,7 @@ FourVector operator*(const double a, const FourVector &rhs)
 	return temp;
 }
 
-FourVector operator+(const FourVector &lhs, const double a)
+FourVector operator/(const FourVector &lhs, const double a)
 {
 	FourVector temp(lhs);
 	temp /= a;
